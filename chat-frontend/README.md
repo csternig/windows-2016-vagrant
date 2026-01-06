@@ -1,9 +1,10 @@
 # Claude Chat Frontend
 
-Ein modernes Web-Frontend für die Claude API mit einer benutzerfreundlichen Chat-Oberfläche.
+Ein modernes Chat-Interface für die Claude API - verfügbar als Web-App und native Android App.
 
-## Features
+## 📱 Verfügbare Plattformen
 
+### Web-Frontend
 - 💬 Moderne, responsive Chat-Oberfläche
 - 🎨 Ansprechendes Design mit Gradient-Styling
 - 💾 Automatisches Speichern der Konversationshistorie im Browser
@@ -12,21 +13,54 @@ Ein modernes Web-Frontend für die Claude API mit einer benutzerfreundlichen Cha
 - 🔄 Auto-resizing Textarea für komfortable Eingabe
 - ⌨️ Tastaturkürzel (Enter zum Senden, Shift+Enter für neue Zeile)
 
+### Android App
+- 📱 Native Android App mit Kotlin
+- 🎨 Moderne UI mit Jetpack Compose und Material Design 3
+- 🔄 MVVM Architektur
+- ⚡ Effiziente API-Kommunikation mit Retrofit
+- 🎯 Animierte Typing-Indikatoren
+- 📊 Zeichenzähler und Eingabevalidierung
+
 ## Projektstruktur
 
 ```
 chat-frontend/
-├── frontend/
+├── frontend/           # Web-Frontend
 │   ├── index.html      # Hauptseite der Chat-Oberfläche
 │   ├── style.css       # CSS-Styling
 │   └── app.js          # Frontend-Logik
-├── backend/
+├── backend/            # Shared Backend für Web & Android
 │   ├── server.js       # Express-Server für Claude API Integration
 │   ├── package.json    # Node.js Dependencies
 │   ├── .env.example    # Beispiel für Umgebungsvariablen
 │   └── .gitignore      # Git-Ignore-Datei
+├── android/            # Native Android App
+│   ├── app/
+│   │   └── src/main/java/com/claude/chat/
+│   │       ├── model/          # Data Models
+│   │       ├── network/        # API Service
+│   │       ├── repository/     # Data Layer
+│   │       ├── viewmodel/      # ViewModels
+│   │       ├── ui/             # Jetpack Compose UI
+│   │       └── MainActivity.kt
+│   ├── build.gradle
+│   └── README.md       # Android-spezifische Dokumentation
 └── README.md           # Diese Datei
 ```
+
+## Quick Start
+
+### Web-Frontend
+
+Siehe den [Web-Frontend Abschnitt](#web-frontend-installation) unten.
+
+### Android App
+
+Siehe [android/README.md](android/README.md) für detaillierte Anweisungen.
+
+---
+
+# Web-Frontend Installation
 
 ## Voraussetzungen
 
