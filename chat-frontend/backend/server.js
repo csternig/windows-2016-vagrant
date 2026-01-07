@@ -1,10 +1,25 @@
 const express = require('express');
 const cors = require('cors');
 const Anthropic = require('@anthropic-ai/sdk');
+const os = require('os');
 require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Function to get local IP address
+function getLocalIPAddress() {
+    const interfaces = os.networkInterfaces();
+    for (const name of Object.keys(interfaces)) {
+        for (const iface of interfaces[name]) {
+            // Skip internal (loopback) and non-IPv4 addresses
+            if (iface.family === 'IPv4' && !iface.internal) {
+                return iface.address;
+            }
+        }
+    }
+    return 'localhost';
+}
 
 // Middleware
 app.use(cors());
@@ -85,18 +100,33 @@ app.post('/api/chat', async (req, res) => {
     }
 });
 
-// Start server
-app.listen(PORT, () => {
+// Start server on all network interfaces (0.0.0.0)
+app.listen(PORT, '0.0.0.0', () => {
+    const localIP = getLocalIPAddress();
+
     console.log(`
 ╔═══════════════════════════════════════════════════╗
 ║         Claude Chat Backend Server                ║
 ╚═══════════════════════════════════════════════════╝
 
-🚀 Server running on: http://localhost:${PORT}
-📡 API endpoint: http://localhost:${PORT}/api/chat
-💻 Frontend: http://localhost:${PORT}
+🚀 Server running on all network interfaces
+
+📍 Local access:
+   http://localhost:${PORT}
+
+🌐 LAN access (from other devices):
+   http://${localIP}:${PORT}
+
+📡 API endpoint:
+   http://${localIP}:${PORT}/api/chat
+
+💻 Frontend:
+   http://${localIP}:${PORT}
 
 ${process.env.ANTHROPIC_API_KEY ? '✅ API Key configured' : '❌ API Key not configured - Please set ANTHROPIC_API_KEY in .env'}
+
+💡 Tipp: Teilen Sie die LAN-Adresse mit anderen Geräten im Netzwerk
+⚠️  Stellen Sie sicher, dass Ihre Firewall den Zugriff erlaubt
 
 Press Ctrl+C to stop
     `);
