@@ -1,5 +1,6 @@
 // Configuration
-const API_URL = 'http://localhost:3000/api/chat';
+// Use relative URL to work from both localhost and LAN access
+const API_URL = '/api/chat';
 
 // DOM Elements
 const chatMessages = document.getElementById('chatMessages');
