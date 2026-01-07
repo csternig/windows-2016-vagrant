@@ -137,7 +137,7 @@ Sendet eine Nachricht an Claude und erhält eine Antwort.
 ```json
 {
   "response": "Claudes Antwort",
-  "model": "claude-3-5-sonnet-20241022",
+  "model": "claude-sonnet-4-5-20250929",
   "usage": {
     "input_tokens": 123,
     "output_tokens": 456
@@ -164,10 +164,11 @@ Sendet eine Nachricht an Claude und erhält eine Antwort.
 In `backend/server.js` können Sie das verwendete Claude-Modell ändern:
 
 ```javascript
-model: 'claude-3-5-sonnet-20241022',  // Aktuelles Modell
+model: 'claude-sonnet-4-5-20250929',  // Aktuelles Modell (Sonnet 4.5)
 // Alternativen:
-// model: 'claude-3-opus-20240229',
-// model: 'claude-3-haiku-20240307',
+// model: 'claude-3-5-sonnet-20241022',  // Sonnet 3.5
+// model: 'claude-3-opus-20240229',      // Opus 3
+// model: 'claude-3-haiku-20240307',     // Haiku 3
 ```
 
 ### Port ändern
