@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Claude Chat</string>
+    <string name="welcome_title">Willkommen beim\nClaude Chat!</string>
+    <string name="welcome_subtitle">Stellen Sie mir eine Frage oder\nbeginnen Sie eine Unterhaltung.</string>
+    <string name="input_placeholder">Ihre Nachricht eingeben...</string>
+    <string name="send">Senden</string>
+    <string name="error_occurred">Ein Fehler ist aufgetreten</string>
+    <string name="server_error">Server-Fehler. Bitte später erneut versuchen.</string>
+    <string name="network_error">Netzwerkfehler. Bitte Verbindung überprüfen.</string>
+    <string name="char_count">%1$d / 4000</string>
+</resources>
